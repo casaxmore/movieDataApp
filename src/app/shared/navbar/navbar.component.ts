@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
+interface MenuItem {
+  ruta: string;
+  texto: string;
+}
 
 @Component({
   selector: 'app-navbar',
@@ -8,17 +12,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  buscarPelicula( texto: string) {
-    if (texto.length === 0) {
-      return;
-    }
-    this.router.navigate(['buscar', texto]);
+  menu: MenuItem[] = [
+    {ruta: '/movie/home', texto: 'Home'},
+    {ruta: '/movie/buscar', texto: 'Buscar'},
+  ];
 
-  }
 
 }
