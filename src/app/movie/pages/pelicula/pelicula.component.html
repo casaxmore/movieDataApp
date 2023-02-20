@@ -1,1 +1,27 @@
-<p>pelicula works!</p>
+<div  *ngIf="pelicula"
+      class="container main-container animated fadeIn fast">
+
+      <h3>{{pelicula.original_title}}</h3>
+
+      <div class="row">
+        <div class="col-md-5">
+          <img [src]="pelicula | movieImagen:true" [alt]="pelicula.original_title"
+               class="img-thumbnail img-fluid">
+        </div>
+
+        <div class="col-md-7">
+          <h5>Sinopsis</h5>
+          <hr>
+          <p class="text-justify">
+            {{ pelicula.overview }}
+          </p>
+
+          <button [routerLink]="['/movie/'+regresarA, busqueda]"
+                  type="button" class="btn btn-outline-danger">
+            Regresar
+          </button>
+        </div>
+      </div>
+
+</div>
+
