@@ -7,7 +7,7 @@ import { MovieService } from '../../services/movie.service';
   templateUrl: './buscar.component.html',
   styleUrls: ['./buscar.component.css']
 })
-export class BuscarComponent implements OnInit, OnDestroy{
+export class BuscarComponent implements OnInit{
 
   buscar: string = '';
 
@@ -20,13 +20,11 @@ export class BuscarComponent implements OnInit, OnDestroy{
       }
     });
   }
-  ngOnDestroy(): void {
-    console.log('Se destruye');
-    this.buscar = '';
-  }
 
   ngOnInit(): void {
     console.log('Estoy dentro');
+    this.movieService.buscarPelicula( this.buscar )
+        .subscribe();
   }
 
   buscarPelicula() {

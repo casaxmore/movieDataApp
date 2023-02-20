@@ -15,6 +15,7 @@ export class MovieService implements OnInit{
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    console.log('Entro en el servicio');
   }
 
   getCartelera() {
@@ -47,7 +48,7 @@ export class MovieService implements OnInit{
       return this.http.get(url).pipe(
         map((res: any) => {
           this.peliculas = res.results;
-          console.log(this.peliculas);
+          console.log('Resultado de peliculas: ', this.peliculas);
           return res.results;
         })
       );
